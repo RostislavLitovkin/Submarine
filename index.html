@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Submarine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            min-height: 100%;
+            background-color: #020617;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, sans-serif;
+            background: radial-gradient(circle at top, #0b1120 0%, #020617 60%, #000 100%);
+            color: #e5e7eb;
+            text-align: center;
+            padding: 40px 20px;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.5));
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin: 10px 0 15px;
+            font-weight: 700;
+            background: linear-gradient(90deg, #38bdf8, #60a5fa);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        p {
+            max-width: 680px;
+            margin: 0 auto;
+            font-size: 1.25rem;
+            color: #cbd5e1;
+            line-height: 1.55;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border-radius: 18px;
+            padding: 30px;
+            margin: 40px auto 0;
+            max-width: 700px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            text-align: left;
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            margin-top: 0;
+            font-weight: 600;
+            color: #93c5fd;
+        }
+
+        pre {
+            background: #0f172a;
+            padding: 14px;
+            border-radius: 10px;
+            font-size: 1rem;
+            overflow-x: auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        ul {
+            font-size: 1.15rem;
+            color: #d1d5db;
+            line-height: 1.65;
+        }
+
+        a {
+            color: #60a5fa;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img src="submarine.png" alt="Submarine logo">
+
+    <h1>Submarine</h1>
+    <p>
+        Submarine is a smart contract that helps developers earn money through a subscription-based model. If the
+        deployed smart contract owns tokens, each month a part is sent to the creator of the contract
+
+    </p>
+
+    <div class="card">
+        <h2>Install</h2>
+
+        <p><strong>Foundry</strong></p>
+        <pre>forge install plutolabs/Submarine</pre>
+
+        <p><strong>NPM</strong></p>
+        <pre>npm install @plutolabs/submarine</pre>
+    </div>
+
+    <p style="margin-top:40px; opacity:0.7;">
+        <a href="https://github.com/plutolabs/Submarine" target="_blank">View on GitHub</a>
+    </p>
+
+</body>
+
+</html>
