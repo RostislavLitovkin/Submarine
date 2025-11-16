@@ -1,0 +1,26 @@
+{
+  "name": "@plutolabs/submarine",
+  "version": "1.0.0",
+  "description": "Recurring 1 DOT fee engine (Submarine) and Treasury reference implementation for PolkaVM-compatible chains.",
+  "license": "MIT",
+  "keywords": [
+    "solidity",
+    "foundry",
+    "polkadot",
+    "recurring-payments",
+    "subscription",
+    "vault"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RostislavLitovkin/Submarine.git"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "foundry.toml"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

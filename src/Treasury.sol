@@ -1,10 +1,12 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
 
-/// @title Treasury - Native DOT custody vault for PolkaVM
+import {Submarine} from "./Submarine.sol";
+
+/// @title Treasury - Native DOT custody vault for PolkaVM with Submarine fee hook
 /// @notice Collects native DOT deposits and restricts withdrawals to the
-///         contract owner (the deployer)
-contract Treasury {
+///         contract owner (the deployer) while running Submarine fee payments
+contract Treasury is Submarine {
     /// @notice Owner address that can move the DOT held by this contract
     address public immutable owner;
 
@@ -18,18 +20,20 @@ contract Treasury {
     error InvalidRecipient();
     error InsufficientBalance();
 
-    constructor() {
+    constructor(address feeCollector, uint64 feeIntervalInBlocks) Submarine(feeCollector, feeIntervalInBlocks) {
         owner = msg.sender;
     }
 
     /// @notice Accept plain DOT transfers without calldata
     receive() external payable {
         emit Deposited(msg.sender, msg.value);
+        _submarineHook();
     }
 
     /// @notice Accept DOT deposits via explicit function call
     function deposit() external payable {
         emit Deposited(msg.sender, msg.value);
+        _submarineHook();
     }
 
     /// @notice Sends DOT from the treasury balance to the chosen recipient
@@ -43,6 +47,13 @@ contract Treasury {
         require(success, "DOT transfer failed");
 
         emit Withdrawn(recipient, amount);
+
+        _submarineHook();
+    }
+
+    /// @notice Manually attempts to pay the Submarine fee without moving funds out
+    function tickSubmarine() external onlyOwner {
+        _submarineHook();
     }
 
     /// @notice Convenience helper returning the DOT held by this contract
