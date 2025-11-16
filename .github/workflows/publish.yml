@@ -1,8 +1,9 @@
 name: Publish Submarine Package
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
   workflow_dispatch: {}
 
 jobs:
@@ -28,4 +29,8 @@ jobs:
       - name: Publish package
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish --ignore-scripts
+        run: |
+          if [ -z "${NODE_AUTH_TOKEN}" ]; then
+            echo "NPM_TOKEN secret is missing; skip publish" && exit 0
+          fi
+          npm publish --ignore-scripts

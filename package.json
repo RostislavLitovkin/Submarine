@@ -1,6 +1,6 @@
 {
   "name": "@plutolabs/submarine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Recurring 1 DOT fee engine (Submarine) and Treasury reference implementation for PolkaVM-compatible chains.",
   "license": "MIT",
   "keywords": [
